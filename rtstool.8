@@ -1,0 +1,59 @@
+.TH RTSTOOL "8" "March 2013" "rtstool Usage:" "User Commands"
+.SH NAME
+rtstool \- manual page for rtstool
+.SH DESCRIPTION
+rtstool is a command-line wrapper for python-rtslib.  It can be used to configure LIO iSCSI targets.
+.PP
+The primary intent of this program to act as an interface between python-rtslib and OpenStack Cinder.
+.SH USAGE
+.B
+rtstool
+[operation] [arguments]
+.PP
+.B
+rtstool
+create [device] [name] [userid] [password] <initiator_iqn,iqn2,iqn3,...>
+.RS
+Create a new iSCSI target with CHAP authentication, and allow access from specified IQNs.
+.RE
+.PP
+.B rtstool
+add\-initiator [target_iqn] [userid] [password] [initiator_iqn]
+.RS
+Add an initiator's IQN to the ACL of an existing iSCSI target.
+.RE
+.PP
+.B rtstool
+get\-targets
+.RS
+List current iSCSI targets.
+.RE
+.PP
+.B rtstool
+delete [iqn]
+.RS
+Delete an iSCSI target.
+.RE
+.PP
+.B rtstool
+verify
+.RS
+Ensure that rtstool can run (python requirements met).
+.SH EXAMPLES
+\&rtstool create /dev/volumes/volume-1 iqn.2010-10.org.my:volume-1 chap_user chap_pass iqn.1994-05.com.redhat:ba25f73f5f2b
+.PP
+\&rtstool add-initiator iqn.2010-10.org.my:volume-1 chap_user chap_auth iqn.1994-05.com.redhat:beeffed1
+.PP
+\&rtstool get-targets
+.RS
+iqn.2010-10.org.my:volume-1
+.RE
+.PP
+\&rtstool delete iqn.2010-10.org.my:volume-1
+\&
+.RE
+.PP
+.SH SEE ALSO
+targetcli(8)
+.SH AUTHOR
+Written by Eric Harney <eharney@redhat.com>.
