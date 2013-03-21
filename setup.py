@@ -3,7 +3,7 @@
 from distutils.core import setup
 
 setup(name='rtstool',
-      version='0.1a1',
+      version='0.1a2',
       description='rtslib command-line interface',
       author='Eric Harney',
       author_email='eharney@redhat.com',
