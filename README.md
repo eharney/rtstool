@@ -3,4 +3,4 @@ rtstool
 
 rtslib command-line interface
 
-Licensed under AGPLv3.
+Licensed under Apache License, Version 2.0.
